@@ -19,3 +19,7 @@ $ gcloud auth activate-service-account --key-file credentials_read_write.json
 $ gsutil cp ~/hello2.txt gs://tf-gcp-bucket-sandbox
 
 ```
+
+# TODO
+
+- get read-only path working
