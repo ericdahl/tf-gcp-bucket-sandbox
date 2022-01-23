@@ -1,6 +1,6 @@
 provider "google" {
   project = "tf-gcp-bucket-sandbox"
-  region = "us-west-1"
+  region  = "us-west-1"
 }
 
 
@@ -8,7 +8,7 @@ resource "google_storage_bucket" "default" {
 
   force_destroy = true
 
-  name = "tf-gcp-bucket-sandbox"
+  name     = "tf-gcp-bucket-sandbox"
   location = "US-WEST1"
 }
 

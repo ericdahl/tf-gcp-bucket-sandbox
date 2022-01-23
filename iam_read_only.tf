@@ -3,8 +3,8 @@ resource "google_service_account" "read_only" {
 }
 
 resource "google_project_iam_custom_role" "read_only" {
-  role_id     = "tf_gcp_bucket_sandbox_read_only"
-  title       = "tf-gcp-bucket-sandbox"
+  role_id = "tf_gcp_bucket_sandbox_read_only"
+  title   = "tf-gcp-bucket-sandbox"
   permissions = [
     "storage.buckets.list",
     "storage.objects.list"
@@ -16,7 +16,6 @@ resource "google_project_iam_custom_role" "read_only" {
 resource "google_service_account_iam_binding" "read_only" {
   service_account_id = google_service_account.read_only.name
   role               = google_project_iam_custom_role.read_only.id
-
 
   members = [
     "serviceAccount:${google_service_account.read_only.email}"
@@ -34,6 +33,6 @@ resource "google_project_iam_member" "read_only" {
 }
 
 resource "local_file" "read_only" {
-  filename = "credentials_read_only.json"
+  filename       = "credentials_read_only.json"
   content_base64 = google_service_account_key.read_only.private_key
 }
